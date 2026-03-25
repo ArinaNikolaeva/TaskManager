@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.add-task {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.add-task input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.add-task input:focus {
+    border-color: #667eea;
+}
+
+.add-task button {
+    padding: 12px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.add-task button:hover {
+    background: #5a67d8;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.task-list li:hover {
+    background: #e9ecef;
+}
+
+.task-list li span {
+    flex: 1;
+    color: #333;
+}
+
+.task-list li.completed span {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-list li button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.task-list li button:hover {
+    background: #c82333;
+}
