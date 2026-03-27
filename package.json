@@ -4,11 +4,12 @@
   "scripts": {
     "start:dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:backend": "cd backend && node server.js",
-    "start:frontend": "cd frontend && npm start"
+    "start:frontend": "cd frontend && npm start",
+    "test": "node simple-test.js"
   },
   "devDependencies": {
+    "axios": "^1.6.0",
     "concurrently": "^8.2.2",
-    "cypress": "^13.6.0",
     "start-server-and-test": "^2.0.3"
   }
 }

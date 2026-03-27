@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,5 +28,11 @@ jobs:
       - name: Build frontend
         run: cd frontend && npm run build
 
-      - name: Success
-        run: echo "Сборка прошла успешно!"
+      - name: Install test dependencies
+        run: npm install --save-dev axios
+
+      - name: Start backend and run tests
+        run: |
+          node backend/server.js &
+          sleep 5
+          node simple-test.js
