@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY package*.json ./
 
-# Устанавливаем зависимости без сборки sqlite3
 RUN npm install
 
 COPY . .

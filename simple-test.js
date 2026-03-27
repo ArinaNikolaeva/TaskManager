@@ -1,18 +1,16 @@
 const axios = require('axios');
 const http = require('http');
 
-const API_URL = 'http://localhost:5001';
+const API_URL = 'http://localhost:9999';
 const FRONTEND_URL = 'http://localhost:3000';
 
 async function runTests() {
-    console.log('\n========================================');
     console.log('ЗАПУСК АВТОМАТИЧЕСКИХ ТЕСТОВ');
-    console.log('========================================\n');
 
     // Тест 1: Проверка доступности backend
     console.log('1. Проверка backend сервера...');
     try {
-        const response = await axios.get(`${API_URL}/tasks`);
+        const response = await axios.get(`${API_URL}/tasksss`);
         console.log('   Успех: backend отвечает (код:', response.status, ')');
     } catch (err) {
         console.log('   Ошибка: backend не отвечает');
@@ -46,7 +44,7 @@ async function runTests() {
         }
         console.log('   Успех: первая задача:', tasksResponse.data[0].title);
     } catch (err) {
-        console.log('   Ошибка: не удалось получить список');
+        console.log('   Ошибка: не удалось получить список ');
         console.log('   Детали:', err.message);
         process.exit(1);
     }
