@@ -1,7 +1,7 @@
 const axios = require('axios');
 const http = require('http');
 
-const API_URL = 'http://localhost:9999';
+const API_URL = 'http://localhost:5001';
 const FRONTEND_URL = 'http://localhost:3000';
 
 async function runTests() {
@@ -10,7 +10,7 @@ async function runTests() {
     // Тест 1: Проверка доступности backend
     console.log('1. Проверка backend сервера...');
     try {
-        const response = await axios.get(`${API_URL}/tasksss`);
+        const response = await axios.get(`${API_URL}/tasks`);
         console.log('   Успех: backend отвечает (код:', response.status, ')');
     } catch (err) {
         console.log('   Ошибка: backend не отвечает');
