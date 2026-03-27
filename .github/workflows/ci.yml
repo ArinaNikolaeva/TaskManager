@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI/CD with Docker
 
 on:
   push:
@@ -7,32 +7,27 @@ on:
     branches: [main]
 
 jobs:
-  build-and-test:
+  docker-build-and-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
-      - name: Install backend dependencies
-        run: cd backend && npm install
+      - name: Build Docker images
+        run: docker-compose build
 
-      - name: Install frontend dependencies
-        run: cd frontend && npm install
+      - name: Run containers
+        run: docker-compose up -d
 
-      - name: Build frontend
-        run: cd frontend && npm run build
+      - name: Wait for services
+        run: sleep 10
 
-      - name: Install test dependencies
-        run: npm install --save-dev axios
+      - name: Run API tests
+        run: node simple-test.js
 
-      - name: Start backend and run tests
-        run: |
-          node backend/server.js &
-          sleep 5
-          node simple-test.js
+      - name: Stop containers
+        run: docker-compose down
